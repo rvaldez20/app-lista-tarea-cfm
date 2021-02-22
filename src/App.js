@@ -5,13 +5,19 @@ import FormularioTareas from './componentes/FormularioTareas';
 
 const App = () => {
 
-	
+	// Se define el Estado
+	const [tareas, cambiarTareas] = useState([]);
+
+	console.log(tareas);
 
   	return (
 		<div className="contenedor">
 			<Header />
 
-			<FormularioTareas />
+			<FormularioTareas 
+				tareas={tareas}
+				cambiarTareas={cambiarTareas}
+			/>
 
 		</div>
   );
