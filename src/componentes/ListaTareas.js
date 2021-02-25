@@ -1,7 +1,7 @@
 import React from 'react';
 import Tarea from './Tarea';
 
-const ListaTareas = ({tareas}) => {
+const ListaTareas = ({tareas, cambiaTareas}) => {
    return (       
       <ul className="lista-tareas">
          {tareas.length > 0 

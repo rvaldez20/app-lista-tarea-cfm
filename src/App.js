@@ -9,16 +9,16 @@ const App = () => {
 
 	// Se define el Estado
 	const [tareas, cambiarTareas] = useState([
-		// {
-		// 	id: 1,
-		// 	texto: 'Lavar la ropa',
-		// 	completada: false
-		// },
-		// {
-		// 	id: 1,
-		// 	texto: 'Lavar la ropa',
-		// 	completada: false
-		// }
+		{
+			id: 1,
+			texto: 'Lavar la ropa',
+			completada: false
+		},
+		{
+			id: 2,
+			texto: 'Bañar al perro',
+			completada: false
+		}
 	]);
 
 	console.log(tareas);
