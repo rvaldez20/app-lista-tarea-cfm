@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faCheckSquare, faSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
 
-const Tarea = ({tarea}) => {
+const Tarea = ({tarea, toggleCompletada}) => {
 
    // definimos el state mostrar u ocultar el form para editar tarea
    const [editandoTarea, cambiarEditandoTarea] = useState(false);
@@ -17,13 +17,14 @@ const Tarea = ({tarea}) => {
       cambiarEditandoTarea(false);
    }
 
-
+  
    return ( 
       <li          
          className="lista-tareas__tarea">
          <FontAwesomeIcon 
-            icon={faCheckSquare}
+            icon={tarea.completada ? faCheckSquare : faSquare}
             className="lista-tareas__icono lista-tareas__icono-check"
+            onClick={() => toggleCompletada(tarea.id)}
          />
          <div className="lista-tareas__texto">
             {editandoTarea ? 

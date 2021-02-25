@@ -17,7 +17,7 @@ const App = () => {
 		{
 			id: 2,
 			texto: 'Bañar al perro',
-			completada: false
+			completada: true
 		}
 	]);
 
@@ -34,6 +34,7 @@ const App = () => {
 
 			<ListaTareas 
 				tareas={tareas}
+				cambiarTareas={cambiarTareas}
 			/>
 
 		</div>
