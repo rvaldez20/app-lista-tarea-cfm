@@ -62,7 +62,6 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
                className="formulario-tareas__icono-btn"
             />
          </button>
-
       </form>
     );
 }

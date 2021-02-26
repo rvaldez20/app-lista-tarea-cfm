@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckSquare, faSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
 
-const Tarea = ({tarea, toggleCompletada}) => {
+const Tarea = ({tarea, toggleCompletada, editarTarea, borrarTarea}) => {
 
    // definimos el state mostrar u ocultar el form para editar tarea
    const [editandoTarea, cambiarEditandoTarea] = useState(false);
@@ -12,6 +12,9 @@ const Tarea = ({tarea, toggleCompletada}) => {
    // **** ***** ***** METODOS
    const handleSubmit = e => {
       e.preventDefault();
+
+      // funcion que va actualizar la tarea
+      editarTarea(tarea.id, nuevaTarea);
 
       // ocultamos el formulario
       cambiarEditandoTarea(false);
@@ -26,7 +29,7 @@ const Tarea = ({tarea, toggleCompletada}) => {
             className="lista-tareas__icono lista-tareas__icono-check"
             onClick={() => toggleCompletada(tarea.id)}
          />
-         <div className="lista-tareas__texto">
+         <div className={tarea.completada ? "lista-tareas__texto tachado" : "lista-tareas__texto"}>
             {editandoTarea ? 
                <form 
                   className="formulario-editar-tarea"
@@ -56,6 +59,7 @@ const Tarea = ({tarea, toggleCompletada}) => {
             <FontAwesomeIcon 
                icon={faTimes}
                className="lista-tareas__icono lista-tareas__icono-accion"
+               onClick={() => borrarTarea(tarea.id)}
             />
          </div>
       </li>

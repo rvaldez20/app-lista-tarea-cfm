@@ -7,7 +7,7 @@ import ListaTareas from './componentes/ListaTareas';
 
 const App = () => {
 
-	// Se define el Estado
+	// Se define el Estado para as tareas
 	const [tareas, cambiarTareas] = useState([
 		{
 			id: 1,
@@ -21,11 +21,17 @@ const App = () => {
 		}
 	]);
 
-	console.log(tareas);
+	// se define el state para mostrar | ocultar las tareas Completadas
+	const [mostrarCompletadas, cambiarmostrarCompletadas] = useState(true);
+
+	// console.log(tareas);
 
   	return (
 		<div className="contenedor">
-			<Header />
+			<Header 
+				mostrarCompletadas={mostrarCompletadas}
+				cambiarmostrarCompletadas={cambiarmostrarCompletadas}
+			/>
 
 			<FormularioTareas 
 				tareas={tareas}
@@ -35,8 +41,8 @@ const App = () => {
 			<ListaTareas 
 				tareas={tareas}
 				cambiarTareas={cambiarTareas}
+				mostrarCompletadas={mostrarCompletadas}
 			/>
-
 		</div>
   );
 }
